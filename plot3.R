@@ -74,7 +74,16 @@ lines(hhpc_data$Sub_metering_3 ~ hhpc_data$Datetime, type = "l", col = "blue")
 legend("topright", lty = 1, col = c("black", "blue", "red"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
 # Add x axis measures as abbreviated weekdays
-axis.POSIXct(1, hhpc_data$Datetime, format = "%a")
+axis.POSIXct(
+  1,
+  hhpc_data$Datetime,
+  at = seq(
+    from = as.POSIXct("2007-02-01 00:00:00"),
+    to = as.POSIXct("2007-02-03 00:00:00"),
+    by = "1 day"
+  ),
+  format = "%a"
+)
 
 # Closing the graphical device
 dev.off()

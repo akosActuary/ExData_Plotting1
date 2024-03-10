@@ -68,7 +68,16 @@ plot(
   ylab = "Global Active Power (kilowatts)"
 )
 # Add x axis measures as abbreviated weekdays
-axis.POSIXct(1, hhpc_data$Datetime, format = "%a")
+axis.POSIXct(
+  1,
+  hhpc_data$Datetime,
+  at = seq(
+    from = as.POSIXct("2007-02-01 00:00:00"),
+    to = as.POSIXct("2007-02-03 00:00:00"),
+    by = "1 day"
+  ),
+  format = "%a"
+)
 
 
 # Closing the graphical device
